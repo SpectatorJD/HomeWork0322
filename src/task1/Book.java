@@ -4,7 +4,7 @@ package task1;
 
 public class Book  {
 
-    private final String nameBook;
+    private String nameBook;
     private int yearCreate;
     private final task1.Author author;
 
@@ -30,4 +30,5 @@ public class Book  {
     public task1.Author getAuthor() {
         return author;
     }
+
 }
