@@ -1,5 +1,7 @@
 package task1;
 
+import java.util.Objects;
+
 public class Author {
     private final String firstNameAuthor;
     private final String nameAuthor;
@@ -22,16 +24,18 @@ public class Author {
     public String toString() {
         return "ФИО Автора " + this.firstNameAuthor + this.nameAuthor;
     }
-    public int hashCode() {
-        return java.util.Objects.hash(firstNameAuthor);
-    }
+
     @Override
-    public boolean equals(Object other) {
-        if (this.getClass() != other.getClass()) {
-            return false;
-        }
-        Author c2 = (Author) other;
-        return firstNameAuthor.equals(c2.firstNameAuthor);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return Objects.equals(firstNameAuthor, author.firstNameAuthor) && Objects.equals(nameAuthor, author.nameAuthor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstNameAuthor, nameAuthor);
     }
 }
 
